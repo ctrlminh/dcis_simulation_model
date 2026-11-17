@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bridging the Gap: DCIS & Breast Ductal Biology Interactive Model</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- p5.js CDN for browser-based cellular simulation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">Boston Latin School • Senior Capstone Research Project</p>
+      <h1>Bridging the Gap: Understanding DCIS &amp; Breast Ductal Biology</h1>
+      <p class="subtitle">
+        An accessible, interactive educational model exploring breast anatomy, Stage 0 Ductal Carcinoma In Situ (DCIS), treatment pathways, and equity in precision oncology for women of color.
+      </p>
+    </div>
+  </header>
+
+  <nav class="tab-nav" aria-label="Capstone Pillars">
+    <div class="container tab-buttons">
+      <button class="tab-btn active" data-tab="biology">1. Breast Ductal Biology</button>
+      <button class="tab-btn" data-tab="dcis">2. Understanding DCIS</button>
+      <button class="tab-btn" data-tab="treatment">3. Treatment Pathways</button>
+      <button class="tab-btn" data-tab="research">4. Research &amp; Equity</button>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+    <!-- TAB 1: BREAST DUCTAL BIOLOGY & INTERACTIVE SIMULATION -->
+    <section id="biology" class="tab-panel active">
+      <div class="panel-header">
+        <h2>Interactive Breast Duct Microenvironment</h2>
+        <p>
+          Explore a cross-section of a human breast duct. Toggle between states below and click directly on cellular structures in the simulation to inspect their biological roles.
+        </p>
+      </div>
+
+      <div class="sim-controls">
+        <button class="stage-btn active" data-stage="healthy">Healthy Duct</button>
+        <button class="stage-btn" data-stage="dcis">Stage 0 DCIS (Contained)</button>
+        <button class="stage-btn" data-stage="idc">Invasive Progression (IDC)</button>
+        <label class="toggle-label">
+          <input type="checkbox" id="toggle-ifn" checked />
+          Show IFN-α / IFN-γ Immune Signaling
+        </label>
+      </div>
+
+      <div class="sim-workspace">
+        <div id="p5-canvas-container" aria-label="Interactive p5.js breast duct simulation"></div>
+
+        <aside class="inspector-card" id="inspector-card">
+          <span class="badge" id="inspector-badge">Interactive Guide</span>
+          <h3 id="inspector-title">Click a Structure to Inspect</h3>
+          <p id="inspector-desc">
+            Select any layer or cell inside the simulation canvas—including the <strong>basement membrane</strong>, <strong>myoepithelial cells</strong>, <strong>luminal epithelial cells</strong>, or <strong>interferon signals</strong>—to learn how it functions in normal tissue and DCIS.
+          </p>
+          <div class="legend">
+            <h4>Simulation Key</h4>
+            <ul>
+              <li><span class="dot membrane"></span> Basement Membrane (Protective Boundary)</li>
+              <li><span class="dot myo"></span> Myoepithelial Cells (Outer Support &amp; Suppression)</li>
+              <li><span class="dot luminal"></span> Luminal Epithelial Cells (Inner Duct Lining)</li>
+              <li><span class="dot dcis-cell"></span> Abnormal DCIS Cells (Confined Proliferation)</li>
+              <li><span class="dot ifn"></span> IFN-α / IFN-γ Signaling (Tumor Microenvironment)</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <div class="video-placeholder">
+        <h3>Video Essay 1: Introduction to Breast Cancer &amp; Ductal Anatomy</h3>
+        <p>YouTube video embed placeholder — replace with your published YouTube iframe link once recorded.</p>
+      </div>
+    </section>
+
+    <!-- TAB 2: UNDERSTANDING DCIS -->
+    <section id="dcis" class="tab-panel">
+      <h2>Understanding Ductal Carcinoma In Situ (DCIS)</h2>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>What Does "Stage 0 / In Situ" Mean?</h3>
+          <p>
+            "In situ" means "in its original place." DCIS is a non-invasive proliferation of abnormal epithelial cells confined completely inside the breast ductal basement membrane. Because these cells have not breached the duct wall, they cannot reach blood vessels or lymphatic channels.
+          </p>
+        </article>
+        <article class="info-card">
+          <h3>Diagnostic Challenges &amp; Breast Density</h3>
+          <p>
+            DCIS is typically detected via microcalcifications on mammograms. However, in patients with dense breast tissue, overlapping tissue can obscure calcifications, making clear diagnostic imaging and risk stratification more challenging.
+          </p>
+        </article>
+        <article class="info-card">
+          <h3>Indolent vs. Progressive Risk</h3>
+          <p>
+            DCIS accounts for roughly 25% of new breast cancer diagnoses. While many lesions remain indolent and never progress, some can develop into Invasive Ductal Carcinoma (IDC) or second breast events—making accurate biomarker and microenvironment research vital.
+          </p>
+        </article>
+      </div>
+      <div class="video-placeholder">
+        <h3>Video Essay 2: Breaking Down a DCIS Diagnosis</h3>
+        <p>YouTube video embed placeholder — insert YouTube iframe here.</p>
+      </div>
+    </section>
+
+    <!-- TAB 3: TREATMENT PATHWAYS -->
+    <section id="treatment" class="tab-panel">
+      <h2>Navigating DCIS Treatment Pathways</h2>
+      <p class="disclaimer">
+        Educational Notice: This tool provides supplementary scientific information to help patients prepare questions for their care team. It is not a substitute for individualized medical advice.
+      </p>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Breast-Conserving Surgery (BCS)</h3>
+          <p>
+            Also known as a lumpectomy, BCS removes the abnormal DCIS lesion along with a small margin of healthy surrounding tissue while preserving the rest of the breast.
+          </p>
+        </article>
+        <article class="info-card">
+          <h3>Radiation Therapy (RT) &amp; Risk Stratification</h3>
+          <p>
+            Radiation therapy often follows BCS to lower local recurrence rates. Genomic and biosignature tools (such as DCISionRT) help clinicians distinguish low-risk from high-risk lesions to prevent both overtreatment and undertreatment.
+          </p>
+        </article>
+        <article class="info-card">
+          <h3>Questions to Ask Your Oncology Team</h3>
+          <ul>
+            <li>Is my DCIS hormone-receptor positive (ER/PR)?</li>
+            <li>What is my estimated risk of local recurrence with or without radiation?</li>
+            <li>Are genomic or risk-stratification tests appropriate for my pathology?</li>
+          </ul>
+        </article>
+      </div>
+      <div class="video-placeholder">
+        <h3>Video Essay 3: Navigating Surgical &amp; Radiation Options</h3>
+        <p>YouTube video embed placeholder — insert YouTube iframe here.</p>
+      </div>
+    </section>
+
+    <!-- TAB 4: RESEARCH & EQUITY -->
+    <section id="research" class="tab-panel">
+      <h2>Spatial Transcriptomics &amp; Health Equity for Women of Color</h2>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>Closing the Outcome Gap</h3>
+          <p>
+            Non-Hispanic Black women experience disproportionately higher rates of second breast events and breast cancer mortality following a DCIS diagnosis, yet remain underrepresented in precision oncology datasets and AI training cohorts.
+          </p>
+        </article>
+        <article class="info-card">
+          <h3>Insights from Spatial Transcriptomics</h3>
+          <p>
+            Unlike bulk sequencing, spatial transcriptomics (such as 10x Genomics Visium) preserves tissue architecture—allowing researchers to map how myoepithelial cells and interferon signaling (IFN-α and IFN-γ) interact inside the DCIS tumor microenvironment.
+          </p>
+        </article>
+        <article class="info-card">
+          <h3>Expert Interviews &amp; Community Support</h3>
+          <p>
+            Upcoming section featuring video interviews with oncology researchers, clinicians, and community advocates working toward equitable precision medicine.
+          </p>
+        </article>
+      </div>
+      <div class="video-placeholder">
+        <h3>Video Essay 4 &amp; Interviews: Equity in Precision Oncology</h3>
+        <p>YouTube video embed placeholder — insert YouTube iframe here.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Created by Michael Minhtrung Nguyễn • Boston Latin School Senior Capstone (2026–2027)</p>
+    </div>
+  </footer>
+
+  <script src="simulation.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
